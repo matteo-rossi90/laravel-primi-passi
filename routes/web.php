@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//route home
 Route::get('/', function () {
 
     //titolo della pagina principale
@@ -56,4 +57,22 @@ Route::get('/', function () {
         ]
     ];
     return view('home', compact( 'title', 'merch', 'objects'));
-});
+})->name('home');
+
+//route about us e informazioni
+Route::get('/about-us', function(){
+
+    $content = 'Chi siamo';
+    return view('about-us', compact('content'));
+})->name('about-us');
+
+//route offerte e servizi
+Route::get('/pricing', function () {
+
+    $price = "Scegli l'offerta migliore per te";
+
+    $paragraph = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, culpa. Ipsa, sint corrupti omnis reprehenderit illum hic
+    excepturi voluptate fugit blanditiis, possimus iure explicabo officia. Asperiores possimus consequatur quo numquam!';
+
+    return view('pricing', compact('price', 'paragraph'));
+})->name('pricing');
